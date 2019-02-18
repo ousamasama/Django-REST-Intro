@@ -20,6 +20,16 @@ class MovieViewSet(viewsets.ModelViewSet):
     #what serializer to use to do translations
     serializer_class = MovieSerializer
 
+    def get_queryset(self):
+        query_set = self.queryset
+        #query params comes back as dicionary
+        keyword = self.request.query_params.get('search', None)
+        if keyword is not None:
+            print("query params", keyword)
+            # dunderscore icontains
+            query_set = query_set.filter(title__icontains=keyword)
+        return query_set
+
 class DirectorViewSet(viewsets.ModelViewSet):
     queryset = Director.objects.all()
     serializer_class = DirectorSerializer
