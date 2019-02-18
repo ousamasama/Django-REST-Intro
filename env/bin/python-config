@@ -1,4 +1,4 @@
-#!/Users/sama/workspace/django-codealong/env/bin/python
+#!/Users/sama/workspace/django-rest-2/env/bin/python
 
 import sys
 import getopt

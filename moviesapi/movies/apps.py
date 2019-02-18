@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class MigrationsConfig(AppConfig):
-    name = 'migrations'
+class MoviesConfig(AppConfig):
+    name = 'movies'
