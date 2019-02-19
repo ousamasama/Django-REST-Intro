@@ -11,5 +11,8 @@ router.register('actors', views.ActorViewSet)
 
 
 urlpatterns = [
-    path('', include(router.urls))
+    # path('', include(router.urls))
+    #how to if it had versions
+    path('api/v1/', include(router.urls))
+    # path('api/v2', include(router.urls))
 ]

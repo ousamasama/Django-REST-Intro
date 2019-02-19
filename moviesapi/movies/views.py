@@ -27,7 +27,7 @@ class MovieViewSet(viewsets.ModelViewSet):
     search_fields = ('title','year')
 
     # def get_queryset(self):
-    #     query_set = self.queryset
+    #     query_set = Movie.objects.all()
     #     #query params comes back as dicionary
     #     keyword = self.request.query_params.get('search', None)
     #     if keyword is not None:
@@ -39,6 +39,13 @@ class MovieViewSet(viewsets.ModelViewSet):
 class DirectorViewSet(viewsets.ModelViewSet):
     queryset = Director.objects.all()
     serializer_class = DirectorSerializer
+
+    def get_queryset(self):
+        queryset = Director.objects.all()
+        keyword = self.request.query_params.get('jerk', None)
+        if keyword is not None:
+            queryset = queryset.filter(is_arrogant_jerk=True)
+        return queryset
 
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = Actor.objects.all()
