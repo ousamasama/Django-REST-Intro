@@ -38,7 +38,7 @@ export default class MoviesForm extends Component {
                     placeholder='movie year released'
                     onChange={this.handleFieldChange}
                 />
-                <button onClick={() => this.twoInOne()}>
+                <button onClick={() => this.submitAndClear()}>
                     Submit New Movie
                 </button>
             </>
